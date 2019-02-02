@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../blocs/bloc.dart';
 import '../blocs/provider.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(context) {
     final bloc = Provider.of(context);
@@ -11,10 +11,51 @@ class LoginScreen extends StatelessWidget {
       margin: EdgeInsets.all(20.0),
       child: Column(
         children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                //alignment:Alignment.center,
+
+                margin: EdgeInsets.only(top: 100, bottom: 100),
+                child: Text('Logo here!'),
+              )
+            ],
+          ),
           emailField(bloc),
           passwordField(bloc),
-          Container(margin: EdgeInsets.only(top: 25.0)),
-          submitButton(bloc),
+          Container(
+            margin: EdgeInsets.only(top: 25.0),
+          ),
+          //submitButton(bloc),
+          Row(
+            children: [
+              submitButton(bloc),
+              Container(
+                margin: EdgeInsets.only(left: 20.0),
+              ),
+              new Text("Forgot your Password?",
+                  style: new TextStyle(
+                      fontSize: 17.0,
+                      color: Color(0xFF18D191),
+                      fontWeight: FontWeight.bold)),
+            ],
+          ),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 18.0),
+                  child: new Text("Create A New Account ",
+                      style: new TextStyle(
+                          fontSize: 17.0,
+                          color: Color(0xFF18D191),
+                          fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
